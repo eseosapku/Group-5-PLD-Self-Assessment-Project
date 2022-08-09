@@ -1,7 +1,9 @@
+from bdb import effective
 from optparse import Values
-
-
+from Bio import name
+from Bio import S
 questions = dict() #empty dict
+Subject = dict()
 
 num = input("How many questions do you want to record  \n" ) #user tells the range(optional)
 
@@ -12,10 +14,19 @@ for i in range(int(num)):
     questions[n]=p#adding that value to the list
 
 
-print("*************Here are your listed questions and Answers****************: ")
+
+
+print("*************Here are your listed questions and Answers****************")
 for key, values in questions.items():
-    print(key, " = ", values)
+    print(f"Que) {key}= \nAns) {values} \n")
 
+Subject[S]=questions
+     
 
-
-
+Add_que = input('**********Would you like to add more questions*********** \n SELECT Yes OR No \n')
+if Add_que == 'No':
+    for key, values in Subject.items():
+        print(f"***********The Subject: {str.capitalize(key)}**************" )
+        for key, values in questions.items():
+           print(f"Que) {key}-- \nAns) {values} \n")
+        
